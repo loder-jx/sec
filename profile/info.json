@@ -1,0 +1,112 @@
+{
+    "header": [
+        " *   ",
+        " *   如非需要调试，本文件可删除",
+        " *   非专业人员可将本文件删除",
+        " *   详细介绍请参考: https://bazhan.wang/faq#INFO-JSON",
+        " *   "
+    ],
+    "resources": [
+        {
+            "url": "https://mt2.cn/",
+            "path": "index.html",
+            "saved": true,
+            "size": 8098,
+            "children": [
+                {
+                    "url": "https://mt2.cn/logo.png",
+                    "path": "img/logo.png",
+                    "saved": true,
+                    "size": 15034,
+                    "children": []
+                },
+                {
+                    "url": "https://mt2.cn/assets/js/app.fa3c383c.js",
+                    "path": "js/app.fa3c383c.js",
+                    "saved": true,
+                    "size": 194915,
+                    "children": []
+                },
+                {
+                    "url": "https://mt2.cn/assets/js/2.16bd6066.js",
+                    "path": "js/2.16bd6066.js",
+                    "saved": true,
+                    "size": 26594,
+                    "children": []
+                },
+                {
+                    "url": "https://mt2.cn/assets/js/47.80addac2.js",
+                    "path": "js/47.80addac2.js",
+                    "saved": true,
+                    "size": 589,
+                    "children": []
+                },
+                {
+                    "url": "https://mt2.cn/assets/css/0.styles.cdc85de6.css",
+                    "path": "css/0.styles.cdc85de6.css",
+                    "saved": true,
+                    "size": 27147,
+                    "children": [
+                        {
+                            "url": "https://mt2.cn/assets/img/search.83621669.svg",
+                            "path": "img/search.83621669.svg",
+                            "saved": true,
+                            "size": 216,
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "alias": "mt2-cn-dokcn4mq",
+    "info": {
+        "remark": [],
+        "title": "MT管理器",
+        "domain": "mt2.cn",
+        "origin": "https://mt2.cn",
+        "ip": "110.42.1.55",
+        "main": "index.html",
+        "url": "https://mt2.cn/",
+        "totalSize": "273 kB",
+        "request": {
+            "headers": {
+                "accept": "text/html,*/*",
+                "accept-language": "zh-CN,zh;q=0.9",
+                "cache-control": "no-cache",
+                "cookie": "",
+                "referer": "https://mt2.cn/",
+                "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36",
+                "x-scraper-website": "https://bazhan.wang/"
+            }
+        },
+        "response": {
+            "responseUrl": "https://mt2.cn/",
+            "redirects": [],
+            "statusCode": 200,
+            "headers": {
+                "server": "nginx",
+                "date": "Mon, 16 Jan 2023 23:49:44 GMT",
+                "content-type": "text/html",
+                "last-modified": "Tue, 03 Jan 2023 07:41:11 GMT",
+                "transfer-encoding": "chunked",
+                "connection": "close",
+                "vary": "Accept-Encoding",
+                "etag": "W/\"63b3dc17-1f9f\"",
+                "strict-transport-security": "max-age=31536000"
+            }
+        },
+        "time": {
+            "start": "2023-01-16T23:49:38.059Z",
+            "end": "2023-01-16T23:49:39.608Z"
+        }
+    },
+    "options": {
+        "url": "https://mt2.cn/",
+        "referer": "",
+        "cookies": "",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36",
+        "formatter": [],
+        "filenameGenerator": "byType"
+    }
+}
