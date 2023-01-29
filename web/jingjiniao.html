@@ -1,0 +1,99 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <script language="javascript"> //js脚本标注
+         var message_dz = prompt("请输入要爬取的文章地址：");
+         var message_cookie=prompt("请输入Cookie:");
+       </script>
+    <py-config>
+        packages=["requests","lxml","BeautifulSoup4"]
+    </py-config>
+
+    <py-script>
+        import os.path
+        import re
+        
+        from bs4 import BeautifulSoup
+        import requests
+        from js import message_cookie,message_dz
+        
+        headers = {
+            "User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36",
+            "Cookie":""
+            }
+        '''
+        爬取具体的文章并存入文档中
+        '''
+        def thread_spider(thread_url, headers, block_name):
+            
+            print(headers)
+            
+            page_num = 1
+            print("爬取的文章url为:\n"+thread_url)
+            while(True):
+                response = requests.get(thread_url, headers=headers)    
+                print(response.status_code)
+                print("正在爬取第"+str(page_num)+"页")
+                soup = BeautifulSoup(response.text, 'html.parser')
+                # 获取标题
+                elements = soup.select('#thread_subject')
+                if elements:
+                  title = elements[0].text
+                else:
+                  title = soup.find('title').text
+                  print("出错了！\n")
+                title = re.sub(r"\[最后更新.*?\]", "", title)
+                title = title.replace("/", "").replace(":", "").replace("*", "").replace("?", "").replace(" ","")
+                title = title.replace("\\", "").replace("<", "" ).replace(">", "").replace("|", "")
+                if page_num == 1:
+                  print(title)
+                # 选择class=t_f的tags
+                t_f = soup.select(".t_f div")
+                for tags in t_f:
+                    for tag in tags.find_all(style='display:none') + tags.find_all(class_='jammer') \
+                                + tags.find_all(['br', 'img', 'a', 'i']) + tags.find_all('div', class_='quote'):
+                        tag.decompose()
+                # 存入文件中
+                if not os.path.exists("./" + block_name):
+                    os.mkdir(".\\" + block_name)
+                for tags in t_f:
+                    for tag in tags:
+                     file = open(".\\"+block_name+"\\" + title + ".txt", "a", encoding='utf-8')
+                     file.write(tag.text)
+                # 找到下一页
+                nextLinkTag = soup.select('.nxt')
+                if nextLinkTag:
+                   nextLinkStr = nextLinkTag[0].attrs['href']
+                   thread_url = nextLinkStr
+                   page_num = page_num + 1
+                else:
+                   print("爬取完成","下载好的文章在程序目录下")
+                   input("请按任意键退出......")
+                   break
+        if __name__ == '__main__':
+            print('''程序开源地址:https://github.com/cc3389/JingjiniaoSpider
+            原作者:cc3389
+            修改&打包:yhysy
+            版本:1.1
+            ''')
+            print('正在加载中......')
+            print('(注:如果长时间没有加载成功，您可以尝试重新启动程序)')
+            print("加载成功")
+            print('请输入要爬取的文章地址:')
+            地址=message_dz
+            print("请输入Cookie:")
+            headers["Cookie"]=message_cookie
+            
+            # 主题的地址
+            thread_spider(地址, headers , '荆棘鸟的下载目录')
+    </py-script>
+</body>
+
+</html>
